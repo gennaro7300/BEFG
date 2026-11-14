@@ -512,7 +512,7 @@ function renderBoard() {
   for (const t of ['A', 'B']) {
     for (let z = 0; z < 3; z++) {
       const s = G.stadi[t][z]; if (!s) continue;
-      const pos = slotPos(t, 'sta', z);
+      const pos = slotPos(t, 'sta', t === 'A' ? z : 2 - z);
       BOARD.appendChild(miniCard(s.card, pos.x + 3.3, pos.y + 4, false));
       const tp = pos.track(Math.max(1, Math.min(5, s.left))); addCube(tp.x, tp.y);
     }
